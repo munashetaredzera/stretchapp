@@ -6,8 +6,8 @@ const express = require('express'),
       path = require('path')
 //      sessions = required('client-sessions')
 
-process.env.STUDENT_SECRET_KEY = 'DYS884U83993J8948I4993KJJKKD'
-process.env.ADMIN_SECRET_KEY = 'DUIE8939UJ389J4899450994003'
+process.env.STUDENT_SECRET_KEY = 'DYDTY37838I8JS8IEUEOOEOE9030903KEOFD'
+process.env.ADMIN_SECRET_KEY = 'DY3783UECYU3D8Y83YFD83YU3F8YFDUH93'
 process.env.MONGODB_CONNECT = 'mongodb://admin:stretch2017admin!@ds119533.mlab.com:19533/stretchmind'
 
 app.use(bodyParser.urlencoded({extended: true}))
@@ -76,8 +76,4 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/admin.html'))
 })
 
-var port = process.env.port || 3000
-
-app.listen(port, () => {
-  console.log('Stretch API running on port: ' + port)
-})
+app.listen(process.env.port || 5000)
