@@ -1,3 +1,4 @@
+'use strict'
 const express = require('express'),
       app = express(),
       mongoose = require('mongoose'),
@@ -6,9 +7,9 @@ const express = require('express'),
       path = require('path')
 //      sessions = required('client-sessions')
 
-process.env.STUDENT_SECRET_KEY = 'DYDTY37838I8JS8IEUEOOEOE9030903KEOFD'
-process.env.ADMIN_SECRET_KEY = 'DY3783UECYU3D8Y83YFD83YU3F8YFDUH93'
-process.env.MONGODB_CONNECT = 'mongodb://admin:stretch2017admin!@ds119533.mlab.com:19533/stretchmind'
+process.env.STUDENT_SECRET_KEY = ''
+process.env.ADMIN_SECRET_KEY = ''
+process.env.MONGODB_CONNECT = ''
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
@@ -34,7 +35,7 @@ app.use(function (req, res, next) {
 
 
 app.get('/', (req, res) => {
-  res.send('Welcome to Stretch restful API.')
+  res.send('Welcome to Stretch.')
 })
 
 
@@ -76,4 +77,6 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/admin.html'))
 })
 
-app.listen(process.env.port || 5000)
+app.listen(process.env.PORT || 8080, () => {
+  console.log('Application running now...')
+})
